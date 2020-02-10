@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="../js库/template-web.js"></script>
+</head>
+
+<body>
+    <div>
+
+    </div>
+
+</body>
+<script type='text/html' id='abc'>
+    <h3>{{name}}</h3>
+    {{if age>=18}}
+    <p>成人</p>
+    {{else}}
+    <p>小朋友</p>
+    {{/if}}
+    {{each hobby item}}
+    <li>{{item}}</li>
+    {{/each}}
+</script>
+<script>
+    var res = {
+        name: 'jack',
+        age: 12,
+        hobby: ['hi饭', '睡觉', '打豆豆']
+    }
+
+
+    htmlStr = template('abc', res)
+    console.log(htmlStr);
+
+
+</script>
+
+</html>

@@ -31,32 +31,23 @@
     </div>
 </body>
 <script src="./js/jquery-1.12.4.min.js"></script>
+<script src="./js/user.js"></script>
+<script src="./js/jizhanguanli.js"></script>
 <script>
 
     //1.用户登录
-    // 思路：
-    // 给按钮添加点击事件
-    // 收集用户信息，简单判断，
-    // 请求ajax接口，根据接口的反馈做后续的动作
+    // 1.1给按钮添加点击事件
+    // 1.2收集用户信息，简单判断，
+    // 1.3请求ajax接口，根据接口的反馈做后续的动作
     $('#btn').click(function () {
         var name = $('#username').val().trim();
         var password = $('#password').val().trim();
         if (name.length == 0 || password.length == 0) {
+            alert('输入信息不能为空')
             return
         }
-        // $.post(url,数据).then(回调)
-        $.post('http://192.168.172.82:8000/admin/login', {
-            'user_name': name,
-            'password': password
-        }).then(function (res) {
-            if (res.code === 200) {
-                alert('登陆成功')
-            } else {
-                alert(res.msg)
-            }
-        })
-    })
-
+        user.login(name, password);
+    });
 
 </script>
 
